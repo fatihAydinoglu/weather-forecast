@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Column } from '../../core';
 
+// city result
 const WeatherCityResult = ({ city }) => (
     <Row>
         <Column size="md" columnCount="8" offset="2">

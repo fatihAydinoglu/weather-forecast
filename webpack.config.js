@@ -1,7 +1,6 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = function (env) {
 
@@ -34,17 +33,13 @@ module.exports = function (env) {
 
     let outputFileName = 'bundle';
 
-    let sassLoader = ['style-loader', 'css-loader?sourceMap', 'sass-loader?sourceMap'];
-
     // Change config values if it is for prod
     if (isProd) {
         entryMain = [
-            './index.js',
-            './sass/index.scss'
+            './index.js'
         ];
         outputFolder = 'build';
         outputFileName = '[chunkhash].[name]';
-        sassLoader = ExtractTextPlugin.extract(['css-loader', 'sass-loader']);
         plugins = [
             new webpack.LoaderOptionsPlugin({
                 minimize: true,
@@ -60,10 +55,6 @@ module.exports = function (env) {
                     screw_ie8: true
                 },
                 comments: false
-            }),
-            new ExtractTextPlugin({
-                filename: '[chunkhash].[name].css',
-                allChunks: true
             }),
             new webpack.optimize.CommonsChunkPlugin({
                 name: 'vendor',
@@ -106,10 +97,6 @@ module.exports = function (env) {
                         'babel-loader',
                     ],
                     exclude: /node_modules/
-                },
-                { // sass / scss loader for webpack
-                    test: /\.(sass|scss)$/,
-                    loaders: sassLoader
                 }
             ],
         },

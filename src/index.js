@@ -5,9 +5,6 @@ import { Provider } from 'react-redux';
 import { App } from './modules/core';
 import configureStore from './store/configureStore';
 
-// to bundle css
-require('./sass/index.scss');
-
 // Create redux store
 const store = configureStore();
 

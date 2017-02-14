@@ -1,7 +1,9 @@
 import { createSelector } from 'reselect';
 import { NAME } from './constants';
 
+// Select forecast from state
 const getForecast = (state) => state[NAME].forecast;
+// Select date from state
 const getSelectedDateFromState = (state) => state[NAME].selectedDate;
 
 // Get date array from api result
@@ -11,8 +13,9 @@ const getForecastDates = createSelector(
         if (!forecastList) return null;
         const dates = [];
         forecastList.forEach(item => {
-            if (dates.indexOf(item.date) < 0) {
-                dates.push(item.date);
+            const date = new Date(item.date * 1000).toLocaleDateString();
+            if (dates.indexOf(date) < 0) {
+                dates.push(date);
             }
         });
         return dates;
@@ -42,7 +45,9 @@ const getSelectedDateForecast = createSelector(
         if (!selectedDate) return null;
         const dailyForecast = [];
         forecastList.forEach(item => {
-            if (item.date === selectedDate) {
+            const date = new Date(item.date * 1000).toLocaleDateString();
+            if (date === selectedDate) {
+                item.time = new Date(item.date * 1000).toLocaleTimeString();
                 dailyForecast.push(item);
             }
         });
@@ -50,8 +55,9 @@ const getSelectedDateForecast = createSelector(
     }
 );
 
+// Get city name with country code
 const getCity = (state) => {
-    if(!state[NAME].city) return null;
+    if (!state[NAME].city) return null;
     return state[NAME].city + ', ' + state[NAME].country;
 };
 

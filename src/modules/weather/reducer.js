@@ -1,5 +1,6 @@
 import * as t from './actionTypes';
 
+// Initial state
 const initialState = {
     city: null,
     country: null,
@@ -19,9 +20,8 @@ export default (state = initialState, action) => {
             city: action.payload.city.name,
             country: action.payload.city.country,
             forecast: action.payload.list.map(item => ({
-                date: new Date(item.dt * 1000).toLocaleDateString(),
-                time: new Date(item.dt * 1000).toLocaleTimeString(),
-                temp: Math.floor(Number(item.main.temp) - 273.15),
+                date: item.dt,
+                temp: Math.floor(Number(item.main.temp) - 273.15), // Temperature, convert to celcius
                 humidity: item.main.humidity,
                 pressure: item.main.pressure,
                 icon: item.weather[0].icon,

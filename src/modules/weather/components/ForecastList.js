@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Row, Column } from '../../core';
 import HourlyForecast from './HourlyForecast';
 
+// Weather forecast result table
 class ForecastList extends Component {
     render() {
         const { dailyForecastList } = this.props;

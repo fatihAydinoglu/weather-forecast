@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Row, Column } from '../../core';
 import ForecastDateListItem from './ForecastDateListItem';
 
+// Forecast returned dates
 class ForecastDateList extends Component {
     constructor(props) {
         super(props);

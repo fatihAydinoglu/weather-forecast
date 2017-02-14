@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Column } from '../../core';
 
+// Input for city name
 class WeatherInput extends Component {
     constructor(props) {
         super(props);
@@ -18,6 +19,7 @@ class WeatherInput extends Component {
         const { city } = this.state;
         if (city) {
             this.props.onSubmit(city);
+            this.setState({ city: '' });
         }
     }
 

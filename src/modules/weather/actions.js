@@ -2,12 +2,14 @@ import axios from 'axios';
 import * as t from './actionTypes';
 import { API_URL } from './constants';
 
+// Fetching is initiated.
 function fetchForecastRequest() {
     return {
         type: t.FETCH_FORECAST_REQUEST
     };
 }
 
+// return success
 function fetchForecastSuccess(payload) {
     return {
         type: t.FETCH_FORECAST_SUCCESS,
@@ -15,6 +17,7 @@ function fetchForecastSuccess(payload) {
     };
 }
 
+// return error
 function fetchForecastFailure(error) {
     return {
         type: t.FETCH_FORECAST_FAILURE,
@@ -22,6 +25,7 @@ function fetchForecastFailure(error) {
     };
 }
 
+// Get forecast from api
 export function fetchForecast(city) {
     return dispatch => {
         //for loading message
@@ -40,11 +44,10 @@ export function fetchForecast(city) {
     };
 }
 
+// Set selected date
 export function setSelectedDate(date) {
-    return dispatch => {
-        dispatch({
-            type: t.SET_SELECTED_DATE,
-            date
-        });
+    return {
+        type: t.SET_SELECTED_DATE,
+        date
     };
 }

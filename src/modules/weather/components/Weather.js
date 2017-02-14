@@ -10,6 +10,8 @@ import ForecastDateList from './ForecastDateList';
 import ForecastList from './ForecastList';
 import WeatherCityResult from './WeatherCityResult';
 
+// Container of weather forecastDates
+// Connects to redux store
 class Weather extends Component {
     constructor(props) {
         super(props);
@@ -58,6 +60,7 @@ class Weather extends Component {
     }
 }
 
+// get data from state and bind to props
 function mapStateToProps(state) {
     return {
         forecastDates: getForecastDates(state),
@@ -69,6 +72,7 @@ function mapStateToProps(state) {
     };
 }
 
+// connect to redux
 export default connect(mapStateToProps, {
     fetchForecast,
     setSelectedDate

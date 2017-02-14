@@ -3,7 +3,7 @@ import Container from './Container';
 import { Weather } from '../../weather';
 import Header from './Header';
 
-// Main component of React
+// Main component of React app
 const App = () => (
     <Container>
         <Header text="Weather Forecast"/>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ForecastIcon from './ForecastIcon';
+
+// Forecast table row
 class HourlyForecast extends Component {
     render() {
         const { time, description, temp, humidity, pressure, icon } = this.props.forecast;
