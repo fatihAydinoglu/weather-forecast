@@ -1,4 +1,4 @@
-import chai from 'chai'
+import chai from 'chai';
 import * as t from '../../src/modules/weather/actionTypes';
 import { weatherReducer } from '../../src/modules/weather/';
 import mockResponse from './mockResponse';

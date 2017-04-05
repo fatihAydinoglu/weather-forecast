@@ -1,4 +1,4 @@
-import { NAME } from './constants';
+import {NAME} from './constants';
 
 export const FETCH_FORECAST_REQUEST = `${NAME}/FETCH_FORECAST_REQUEST`;
 export const FETCH_FORECAST_SUCCESS = `${NAME}/FETCH_FORECAST_SUCCESS`;

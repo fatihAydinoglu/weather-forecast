@@ -5,10 +5,4 @@ import Error from './components/Error';
 import Loading from './components/Loading';
 
 // Core modules export
-export {
-    App,
-    Row,
-    Column,
-    Error,
-    Loading
-};
+export {App, Row, Column, Error, Loading};
