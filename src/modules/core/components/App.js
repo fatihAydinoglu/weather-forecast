@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react';
 import Container from './Container';
 import {Weather} from '../../weather';

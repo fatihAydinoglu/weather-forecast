@@ -1,10 +1,13 @@
+// @flow
+
 import {createSelector} from 'reselect';
 import {NAME} from './constants';
+import type {StateType} from './types';
 
 // Select forecast from state
-const getForecast = state => state[NAME].forecast;
+const getForecast = (state: StateType) => state[NAME].forecast;
 // Select date from state
-const getSelectedDateFromState = state => state[NAME].selectedDate;
+const getSelectedDateFromState = (state: StateType) => state[NAME].selectedDate;
 
 // Get date array from api result
 const getForecastDates = createSelector(getForecast, forecastList => {
@@ -53,7 +56,7 @@ const getSelectedDateForecast = createSelector(
 );
 
 // Get city name with country code
-const getCity = state => {
+const getCity = (state: StateType) => {
   if (!state[NAME].city) return null;
   return state[NAME].city + ', ' + state[NAME].country;
 };

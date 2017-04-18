@@ -1,13 +1,27 @@
+// @flow
+
 import React, {Component} from 'react';
 
+// flow types
+type DefaultProps = any;
+type Props = {
+  date: string,
+  selected: boolean,
+  onDateSelect: () => mixed,
+};
+type State = any;
+
 // Forecast returned date links
-class ForecastDateListItem extends Component {
-  constructor(props) {
+class ForecastDateListItem extends Component<DefaultProps, Props, State> {
+  // flow types
+  handleClick: () => mixed;
+
+  constructor(props: Object) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
+  handleClick(e: Event) {
     e.preventDefault();
     this.props.onDateSelect(this.props.date);
   }
@@ -27,11 +41,5 @@ class ForecastDateListItem extends Component {
     );
   }
 }
-
-ForecastDateListItem.propTypes = {
-  date: React.PropTypes.string.isRequired,
-  selected: React.PropTypes.bool.isRequired,
-  onDateSelect: React.PropTypes.func.isRequired,
-};
 
 export default ForecastDateListItem;

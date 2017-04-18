@@ -1,16 +1,30 @@
+// @flow
+
 import React, {Component} from 'react';
 
 import {Row, Column} from '../../core';
 import ForecastDateListItem from './ForecastDateListItem';
 
+// flow types
+type DefaultProps = any;
+type Props = {
+  dates: Array<string>,
+  selectedDate: string,
+  onDateSelect: () => mixed,
+};
+type State = any;
+
 // Forecast returned dates
-class ForecastDateList extends Component {
-  constructor(props) {
+class ForecastDateList extends Component<DefaultProps, Props, State> {
+  // flow types
+  handleDateSelect: () => mixed;
+
+  constructor(props: Props) {
     super(props);
     this.handleDateSelect = this.handleDateSelect.bind(this);
   }
 
-  handleDateSelect(date) {
+  handleDateSelect(date: string) {
     this.props.onDateSelect(date);
   }
 
@@ -36,11 +50,5 @@ class ForecastDateList extends Component {
     );
   }
 }
-
-ForecastDateList.propTypes = {
-  dates: React.PropTypes.array,
-  selectedDate: React.PropTypes.string,
-  onDateSelect: React.PropTypes.func.isRequired,
-};
 
 export default ForecastDateList;

@@ -1,3 +1,5 @@
+// @flow
+
 import {NAME} from './constants';
 
 export const FETCH_FORECAST_REQUEST = `${NAME}/FETCH_FORECAST_REQUEST`;

@@ -1,3 +1,5 @@
+// @flow
+
 // state key for reducer, action prefix
 export const NAME = 'weather';
 

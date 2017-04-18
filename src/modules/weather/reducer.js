@@ -1,3 +1,5 @@
+// @flow
+
 import * as t from './actionTypes';
 
 // Initial state
@@ -10,7 +12,7 @@ const initialState = {
   error: null,
 };
 
-export default (state = initialState, action) => {
+export default (state: Object = initialState, action: Object) => {
   switch (action.type) {
     // If fetching weather data is success
     case t.FETCH_FORECAST_SUCCESS:

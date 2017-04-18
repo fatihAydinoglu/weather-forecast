@@ -1,10 +1,20 @@
+// @flow
+
 import React, {Component} from 'react';
 
 import {Row, Column} from '../../core';
 import HourlyForecast from './HourlyForecast';
+import type {ForecastType} from '../types';
+
+// flow types
+type DefaultProps = any;
+type Props = {
+  dailyForecastList: Array<ForecastType>,
+};
+type State = any;
 
 // Weather forecast result table
-class ForecastList extends Component {
+class ForecastList extends Component<DefaultProps, Props, State> {
   render() {
     const {dailyForecastList} = this.props;
     if (!dailyForecastList) return null;
@@ -34,9 +44,5 @@ class ForecastList extends Component {
     );
   }
 }
-
-ForecastList.propTypes = {
-  dailyForecastList: React.PropTypes.array,
-};
 
 export default ForecastList;

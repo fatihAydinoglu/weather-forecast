@@ -1,11 +1,5 @@
 /node_modules
 /build
 /dist
-bundle.js
+/flow-typed
 npm-debug.log
-bundle.js
-bundle.js.map
-vendor.bundle.js
-vendor.bundle.js.map
-bundle.css
-bundle.css.map

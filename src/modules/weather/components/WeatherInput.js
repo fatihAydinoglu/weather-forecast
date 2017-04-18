@@ -1,9 +1,19 @@
+// @flow
+
 import React, {Component} from 'react';
 import {Row, Column} from '../../core';
 
 // Input for city name
 class WeatherInput extends Component {
-  constructor(props) {
+  // flow types
+  state: {
+    city: string,
+  };
+
+  handleFormSubmit: () => mixed;
+  handleInputChange: () => mixed;
+
+  constructor(props: Object) {
     super(props);
 
     // initial state
@@ -14,7 +24,7 @@ class WeatherInput extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleFormSubmit(e) {
+  handleFormSubmit(e: Event) {
     e.preventDefault();
     const {city} = this.state;
     if (city) {
@@ -23,8 +33,8 @@ class WeatherInput extends Component {
     }
   }
 
-  handleInputChange(e) {
-    this.setState({city: e.target.value});
+  handleInputChange({ target }: SyntheticInputEvent) {
+    this.setState({city: target.value});
   }
 
   render() {

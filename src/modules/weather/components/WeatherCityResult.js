@@ -1,8 +1,10 @@
+// @flow
+
 import React from 'react';
 import {Row, Column} from '../../core';
 
 // city result
-const WeatherCityResult = ({city}) => (
+const WeatherCityResult = ({city}: Object) => (
   <Row>
     <Column size="md" columnCount="8" offset="2">
       <h3>{city}</h3>

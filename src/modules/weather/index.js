@@ -1,3 +1,5 @@
+// @flow
+
 import {Weather} from './components';
 import reducer from './reducer';
 import * as constants from './constants';

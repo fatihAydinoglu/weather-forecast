@@ -1,3 +1,5 @@
+// @flow
+
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
@@ -14,21 +16,40 @@ import WeatherInput from './WeatherInput';
 import ForecastDateList from './ForecastDateList';
 import ForecastList from './ForecastList';
 import WeatherCityResult from './WeatherCityResult';
+import type {ForecastType} from '../types';
+
+// flow types
+type DefaultProps = any;
+type Props = {
+  forecastDates: Array<string>,
+  selectedDate: string,
+  dailyForecast: Array<ForecastType>,
+  city: string,
+  pending: string,
+  error: string,
+  fetchForecast: () => mixed,
+  setSelectedDate: () => mixed
+};
+type State = any;
 
 // Container of weather forecastDates
 // Connects to redux store
-class Weather extends Component {
+class Weather extends Component<DefaultProps, Props, State> {
+  // flow types
+  handleDateSelect: () => mixed;
+  handleWeatherInputSubmit: () => mixed;
+
   constructor(props) {
     super(props);
 
     this.handleDateSelect = this.handleDateSelect.bind(this);
     this.handleWeatherInputSubmit = this.handleWeatherInputSubmit.bind(this);
   }
-  handleWeatherInputSubmit(city) {
+  handleWeatherInputSubmit(city: string) {
     this.props.fetchForecast(city);
   }
 
-  handleDateSelect(date) {
+  handleDateSelect(date: string) {
     this.props.setSelectedDate(date);
   }
 
@@ -69,7 +90,7 @@ function mapStateToProps(state) {
     selectedDate: getSelectedDate(state),
     dailyForecast: getSelectedDateForecast(state),
     city: getCity(state),
-    pending: state.pending,
+    pending: state.weather.pending,
     error: state.weather.error,
   };
 }

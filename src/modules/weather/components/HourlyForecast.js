@@ -1,8 +1,18 @@
+// @flow
+
 import React, {Component} from 'react';
 import ForecastIcon from './ForecastIcon';
+import type {ForecastType} from '../types';
+
+// flow types
+type DefaultProps = any;
+type Props = {
+  forecast: ForecastType,
+};
+type State = any;
 
 // Forecast table row
-class HourlyForecast extends Component {
+class HourlyForecast extends Component<DefaultProps, Props, State> {
   render() {
     const {
       time,

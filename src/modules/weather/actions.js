@@ -1,3 +1,5 @@
+// @flow
+
 import axios from 'axios';
 import * as t from './actionTypes';
 import {API_URL} from './constants';
@@ -26,8 +28,8 @@ function fetchForecastFailure(error) {
 }
 
 // Get forecast from api
-export function fetchForecast(city) {
-  return dispatch => {
+export function fetchForecast(city: string) {
+  return (dispatch: ()=> mixed, getState: () => mixed) => {
     //for loading message
     dispatch(fetchForecastRequest());
 
@@ -48,7 +50,7 @@ export function fetchForecast(city) {
 }
 
 // Set selected date
-export function setSelectedDate(date) {
+export function setSelectedDate(date: string) {
   return {
     type: t.SET_SELECTED_DATE,
     date,
